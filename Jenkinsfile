@@ -23,13 +23,4 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            slackSend channel: env.SLACK_CHANNEL, color: 'good', message: 'Build successful!', credentialsId: env.SLACK_CREDENTIAL, baseUrl: env.SLACK_WORKSPACE
-        }
-        failure {
-            slackSend channel: env.SLACK_CHANNEL, color: 'danger', message: 'Build failed!', credentialsId: env.SLACK_CREDENTIAL, baseUrl: env.SLACK_WORKSPACE
-        }
-    }
-    
 }
