@@ -1,10 +1,16 @@
 pipeline {
     agent any
     stages {
-        states('Clone') {
-            step {
-                git branch: 'main', credentialsId: 'account_id', url: 'https://github.com/tranthienminh1353/jenkins-tutorial.git'
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/tranthienminh1353/jenkins-tutorial.git'
             }
         }
+        stage('Build') {
+            steps {
+                // some steps here
+            }
+        }
+        // add more stages if needed
     }
 }
