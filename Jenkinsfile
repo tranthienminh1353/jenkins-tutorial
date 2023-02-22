@@ -1,5 +1,11 @@
 pipeline {
     agent any
+
+    environment {
+            SLACK_CHANNEL = '#noti'
+            SLACK_CREDENTIAL = 'tg3ocU7Wc2EEJxe7Pl6PdjqK'
+        }
+
     stages {
         stage('Clone') {
             steps {
@@ -16,9 +22,12 @@ pipeline {
             }
         }
     }
-    post{
-        always{
-            slackSend (channel: '#noti', color: 'good', message: 'Build successful!', tokenCredentialId: "slid")
+    post {
+        success {
+            slackSend channel: env.SLACK_CHANNEL, color: 'good', message: 'Build successful!', credentialId: env.SLACK_CREDENTIAL
+        }
+        failure {
+            slackSend channel: env.SLACK_CHANNEL, color: 'danger', message: 'Build failed!', credentialId: env.SLACK_CREDENTIAL
         }
     }
     
