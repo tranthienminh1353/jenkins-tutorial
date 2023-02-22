@@ -24,8 +24,8 @@ pipeline {
         }
         stage('SSH Agent') {
             steps {
-                sshagent(['ssh-key']) {
-                sh 'ssh -o StrictHostKeyChecking=no -l windows 192.168.1.106 uname -a'
+                sshagent(['ssh-id']) {
+                sh 'ssh -o StrictHostKeyChecking=no -l tranthienminh135@gmail.com 192.168.1.242 uname -a'
                 }
             }
         }
