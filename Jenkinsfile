@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // some steps here
+                echo 'Hello world'
             }
         }
         // add more stages if needed
