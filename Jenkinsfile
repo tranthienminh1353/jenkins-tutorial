@@ -22,7 +22,8 @@ pipeline {
                 }
             }
         }
-        post {
+    }
+    post {
             success {
                 slackSend (color: 'good', message: 'Build successful!')
             }
@@ -30,5 +31,4 @@ pipeline {
                 slackSend (color: 'danger', message: 'Build failed!')
             }
         }
-    }
 }
