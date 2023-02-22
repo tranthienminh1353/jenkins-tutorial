@@ -3,7 +3,7 @@ pipeline {
     stages {
         states('Clone') {
             step {
-                git 'https://github.com/tranthienminh1353/jenkins-tutorial.git'
+                git branch: 'main', credentialsId: 'account_id', url: 'https://github.com/tranthienminh1353/jenkins-tutorial.git'
             }
         }
     }
