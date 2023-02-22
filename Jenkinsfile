@@ -9,8 +9,7 @@ pipeline {
         stage('Docker') {
             steps {
                 withDockerRegistry(credentialsId: 'docker_hub', url: 'https://index.docker.io/v1/') {
-                bat 'docker build -t jenkins-tutorial .'
-                bat 'docker push jenkins-tutorial .'
+                bat 'docker run -d -p 80:80 docker/getting-started'
                 }
             }
         }
