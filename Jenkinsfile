@@ -25,7 +25,7 @@ pipeline {
         stage('SSH Agent') {
             steps {
                 sshagent(['ssh-id']) {
-                sh 'ssh -o StrictHostKeyChecking=no -l tranthienminh135@gmail.com 192.168.1.242 uname -a'
+                    sh 'ssh -o "StrictHostKeyChecking no" tranthienminh135@slack.server.com "command"'
                 }
             }
         }
