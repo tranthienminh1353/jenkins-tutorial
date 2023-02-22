@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Docker') {
             steps {
-                withDockerRegistry(credentialsId: 'docker_id', url: 'https://index.docker.io/v1') {
+                withDockerRegistry(credentialsId: 'docker_hub', url: 'https://index.docker.io/v1/') {
                 sh 'docker build -t tranthienminh135/jenkins-tutorial:v10'
                 sh 'docker push tranthienminh135/jenkins-tutorial:v10'
                 }
