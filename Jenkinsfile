@@ -1,4 +1,4 @@
-pepeline {
+pipeline {
     agent any
     stages {
         states('Clone') {
