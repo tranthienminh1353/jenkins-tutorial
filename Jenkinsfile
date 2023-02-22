@@ -22,5 +22,13 @@ pipeline {
                 }
             }
         }
+        post {
+            success {
+                slackSend (channel: color: 'good', message: 'Build successful!')
+            }
+            failure {
+                slackSend (channel: color: 'danger', message: 'Build failed!')
+            }
+        }
     }
 }
