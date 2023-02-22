@@ -22,13 +22,5 @@ pipeline {
                 }
             }
         }
-        stage('SSH Agent') {
-            steps {
-                sshagent(['ssh-id']) {
-                    sh 'ssh -o "StrictHostKeyChecking no" tranthienminh135@slack.server.com "command"'
-                }
-            }
-        }
-        
     }
 }
