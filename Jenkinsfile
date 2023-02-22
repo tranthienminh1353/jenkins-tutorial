@@ -16,4 +16,5 @@ pipeline {
             }
         }
     }
+    slackSend channel: '#noti', color: 'good', message: 'Build successful!', credentialId: "slack_id"
 }
