@@ -4,6 +4,7 @@ pipeline {
     environment {
             SLACK_CHANNEL = '#noti'
             SLACK_CREDENTIAL = 'tg3ocU7Wc2EEJxe7Pl6PdjqK'
+            SLACK_WORKSPACE = 'jenkinsnotifi-jy12673'
         }
 
     stages {
@@ -24,10 +25,10 @@ pipeline {
     }
     post {
         success {
-            slackSend channel: env.SLACK_CHANNEL, color: 'good', message: 'Build successful!', credentialId: env.SLACK_CREDENTIAL
+            slackSend channel: env.SLACK_CHANNEL, color: 'good', message: 'Build successful!', credentialId: env.SLACK_CREDENTIAL, workspace: env.SLACK_WORKSPACE
         }
         failure {
-            slackSend channel: env.SLACK_CHANNEL, color: 'danger', message: 'Build failed!', credentialId: env.SLACK_CREDENTIAL
+            slackSend channel: env.SLACK_CHANNEL, color: 'danger', message: 'Build failed!', credentialId: env.SLACK_CREDENTIAL, workspace: env.SLACK_WORKSPACE
         }
     }
     
