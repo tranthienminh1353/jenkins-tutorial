@@ -23,7 +23,7 @@ app.use(express.json());
 
 app.use(methodOverride("_method"));
 
-// Http logger 123
+// Http logger
 app.use(morgan("combined"));
 
 // route
