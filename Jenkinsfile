@@ -11,7 +11,7 @@ pipeline {
             steps {
                 withDockerRegistry(credentialsId: 'docker_hub', url: 'https://index.docker.io/v1/') {
                     bat 'docker build -t bestwork .'
-                    bat 'docker tag bestwork tranthienminh135/jenkins-tutorial'
+                    bat 'docker tag bestwork tranthienminh135/bestwork'
                     bat 'docker push tranthienminh135/bestwork'
                 }
             }
