@@ -20,16 +20,6 @@ pipeline {
             steps {
                  junit 'path/to/test/reports/*.xml'
             }
-            post {
-                success {
-                    echo 'All tests passed. Proceeding with build.'
-                    currentBuild.result = "SUCCESS"
-                }
-                failure {
-                    echo 'Tests failed. Skipping build.'
-                    currentBuild.result = "FAILURE"
-                }
-            }
             when {
                 expression { currentBuild.result == 'SUCCESS' }
             }
